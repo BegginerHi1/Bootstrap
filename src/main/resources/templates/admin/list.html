@@ -76,7 +76,7 @@
                                 <div class="mb3">
                                     <label for="edit-role">Role</label>
                                     <select class="form-select text-center" multiple id="edit-role"
-                                            th:value="${user.getRoles()}" th:name="roles">
+                                            th:value="${user.getRoles()}" name="roles">
                                         <option th:each="role : ${roles}"
                                                 th:text="${role.getName()}"
                                                 th:value="${role.getId()}"></option>
@@ -113,17 +113,32 @@
                                 <div class="mb-3">
                                     <label for="delete-id" class="col-form-label">Id</label>
                                     <input type="text" class="form-control" id="delete-id" readonly
-                                           th:value="${user.getId()}" th:name="id">
+                                           th:value="${user.getId()}" name="id">
                                 </div>
                                 <div class="mb-3">
-                                    <label for="delete-username" class="col-form-label">Username</label>
-                                    <input type="text" class="form-control" id="delete-username"
-                                           th:value="${user.getFirstName()}" th:name="firstName" readonly>
+                                    <label for="delete-firstName" class="col-form-label">First Name</label>
+                                    <input type="text" class="form-control" id="delete-firstName"
+                                           th:value="${user.getFirstName()}" name="firstName" readonly>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="delete-lastName" class="col-form-label">Last Name</label>
+                                    <input type="text" class="form-control" id="delete-lastName"
+                                           th:value="${user.getLastName()}" name="lastName" readonly>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="delete-age" class="col-form-label">Age</label>
+                                    <input type="text" class="form-control" id="delete-age"
+                                           th:value="${user.getAge()}" name="age" readonly>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="delete-email" class="col-form-label">Email</label>
+                                    <input type="text" class="form-control" id="delete-email"
+                                           th:value="${user.getEmail()}" name="email" readonly>
                                 </div>
                                 <div class="mb3">
                                     <label for="delete-role">Role</label>
                                     <select class="form-control text-center" multiple id="delete-role"
-                                            th:value="${user.getRoles()}" th:name="roles" aria-readonly="true">
+                                            th:value="${user.getRoles()}" name="roles" disabled>
                                         <option th:each="role : ${roles}"
                                                 th:text="${role.getName()}"
                                                 th:value="${role.getId()}"></option>
