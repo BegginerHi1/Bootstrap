@@ -13,7 +13,8 @@
     <thead>
     <tr>
         <th scope="col">Id</th>
-        <th scope="col">Username</th>
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
         <th scope="col">Password</th>
         <th scope="col">Action</th>
         <th scope="col">Edit</th>
@@ -23,7 +24,8 @@
     <tbody>
     <tr th:each="user : ${list}">
         <td th:text="${user.getId()}"></td>
-        <td th:text="${user.getUsername()}"></td>
+        <td th:text="${user.getName()}"></td>
+        <td th:text="${user.getEmail()}"></td>
         <td th:text="${user.getPassword()}"></td>
         <td>
             <a th:href="@{/admin/edit/{id}(id=${user.getId()})}">edit</a>
@@ -55,7 +57,7 @@
                                 <div class="mb-3">
                                     <label for="edit-username" class="col-form-label">Username</label>
                                     <input type="text" class="form-control" id="edit-username"
-                                           th:value="${user.getUsername()}" th:name="username">
+                                           th:value="${user.getName()}" th:name="username">
                                 </div>
                                 <div class="mb-3">
                                     <label for="edit-password" class="col-form-label">Password</label>
@@ -106,7 +108,7 @@
                                 <div class="mb-3">
                                     <label for="delete-username" class="col-form-label">Username</label>
                                     <input type="text" class="form-control" id="delete-username"
-                                           th:value="${user.getUsername()}" th:name="username" readonly>
+                                           th:value="${user.getName()}" th:name="username" readonly>
                                 </div>
                                 <div class="mb3">
                                     <label for="delete-role">Role</label>

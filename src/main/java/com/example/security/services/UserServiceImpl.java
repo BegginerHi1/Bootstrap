@@ -25,13 +25,14 @@ public class UserServiceImpl implements UserService {
     private UserRepository userRepository;
     @PersistenceContext
     private EntityManager entityManager;
-    public User findByUsername(String username) {
-        return userRepository.findByUsername(username);
+    @Override
+    public User findByEmail(String email) {
+        return userRepository.findByEmail(email);
     }
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        User user = findByUsername(username);
+        User user = findByEmail(username);
 
         if (user == null) {
             throw new UsernameNotFoundException("user not found");

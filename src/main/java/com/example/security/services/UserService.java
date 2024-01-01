@@ -12,7 +12,7 @@ public interface UserService extends UserDetailsService {
     @Override
     UserDetails loadUserByUsername(String username) throws UsernameNotFoundException;
 
-    User findByUsername(String username);
+    User findByEmail(String email);
 
     void save(User user);
 
