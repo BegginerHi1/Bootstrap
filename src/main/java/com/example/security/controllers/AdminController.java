@@ -8,6 +8,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.Principal;
+
 @Controller
 @RequestMapping("/admin")
 public class AdminController {
@@ -17,7 +19,9 @@ public class AdminController {
     private RoleRepository roleRepository;
 
     @GetMapping
-    public String list(Model model) {
+    public String list(Model model, Principal principal) {
+        model.addAttribute(userService.findByEmail(principal.getName()));
+        model.addAttribute("newUser", new User());
         model.addAttribute("list", userService.list());
         model.addAttribute("roles", roleRepository.findAll());
         return "admin/list";
