@@ -17,7 +17,7 @@ public class AdminController {
     private RoleRepository roleRepository;
 
     @GetMapping
-    public String listOfUsers(Model model) {
+    public String list(Model model) {
         model.addAttribute("list", userService.list());
         model.addAttribute("roles", roleRepository.findAll());
         return "admin/list";

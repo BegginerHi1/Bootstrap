@@ -9,8 +9,8 @@
 <body>
 <form th:method="PATCH" action="/admin" th:object="${user}">
     <input type="hidden" th:field="*{id}"/>
-    <label for="name">enter name</label>
-    <input type="text" th:field="*{name}" id="name"/>
+    <label for="firstName">enter name</label>
+    <input type="text" th:field="*{firstName}" id="firstName"/>
     <br/>
     <label for="email">enter email</label>
     <input type="text" th:field="*{email}" id="email"/>
@@ -19,11 +19,11 @@
     <input type="text" th:field="*{password}" id="password"/>
     <br/>
     <label>Roles:
-    <input type="checkbox" name="roles"
-           th:each="role : ${roles}"
-           th:text="${role.getName()}"
-           th:value="${role.getId()}"
-           th:field="*{roles}"/>
+        <input type="checkbox" name="roles"
+               th:each="role : ${roles}"
+               th:text="${role.getName()}"
+               th:value="${role.getId()}"
+               th:field="*{roles}"/>
     </label>
     <input type="submit" value="edit"/>
 </form>

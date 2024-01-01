@@ -24,7 +24,7 @@
     <tbody>
     <tr th:each="user : ${list}">
         <td th:text="${user.getId()}"></td>
-        <td th:text="${user.getName()}"></td>
+        <td th:text="${user.getFirstName()}"></td>
         <td th:text="${user.getEmail()}"></td>
         <td th:text="${user.getPassword()}"></td>
         <td>
@@ -57,7 +57,7 @@
                                 <div class="mb-3">
                                     <label for="edit-username" class="col-form-label">Username</label>
                                     <input type="text" class="form-control" id="edit-username"
-                                           th:value="${user.getName()}" th:name="username">
+                                           th:value="${user.getFirstName()}" th:name="firstName">
                                 </div>
                                 <div class="mb-3">
                                     <label for="edit-password" class="col-form-label">Password</label>
@@ -89,7 +89,8 @@
             <button type="button" class="btn btn-primary" data-bs-toggle="modal"
                     th:data-bs-target="${'#deleteModal'+user.getId()}" th:data-row="${user}">delete
             </button>
-            <div class="modal fade" th:id="${'deleteModal'+user.getId()}" tabindex="-1" aria-labelledby="deleteModalLabel"
+            <div class="modal fade" th:id="${'deleteModal'+user.getId()}" tabindex="-1"
+                 aria-labelledby="deleteModalLabel"
                  aria-hidden="true">
                 <form th:method="delete" th:action="@{/admin/delete/{id}(id=${user.getId()})}" th:object="${user}">
                     <div class="modal-dialog">
@@ -108,7 +109,7 @@
                                 <div class="mb-3">
                                     <label for="delete-username" class="col-form-label">Username</label>
                                     <input type="text" class="form-control" id="delete-username"
-                                           th:value="${user.getName()}" th:name="username" readonly>
+                                           th:value="${user.getFirstName()}" th:name="firstName" readonly>
                                 </div>
                                 <div class="mb3">
                                     <label for="delete-role">Role</label>

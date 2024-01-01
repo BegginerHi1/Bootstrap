@@ -12,17 +12,6 @@ public class Role implements GrantedAuthority {
     private Integer id;
     private String name;
 
-    public Role() {
-    }
-
-    public Role(Integer id, String name) {
-        this.id = id;
-        this.name = name;
-    }
-
-    public Role(String name) {
-        this.name = name;
-    }
 
     public Integer getId() {
         return id;
@@ -49,6 +38,7 @@ public class Role implements GrantedAuthority {
     public String toString() {
         return this.name;
     }
+
     @Override
     public int hashCode() {
         final int prime = 31;
@@ -57,6 +47,7 @@ public class Role implements GrantedAuthority {
         return result;
     }
 
+    @Override
     public boolean equals(Object obj) {
         if (this == obj) {
             return true;
@@ -69,12 +60,7 @@ public class Role implements GrantedAuthority {
         }
         Role other = (Role) obj;
         if (id == null) {
-            if (other.id != null) {
-                return false;
-            }
-        } else if (!id.equals(other.id)) {
-            return false;
-        }
-        return true;
+            return other.id == null;
+        } else return id.equals(other.id);
     }
 }
