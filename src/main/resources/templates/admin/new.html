@@ -6,8 +6,14 @@
 </head>
 <body>
 <form method="post" action="/admin" th:object="${user}">
-    <label for="firstName">enter name</label>
+    <label for="firstName">enter firstName</label>
     <input type="text" th:field="*{firstName}" id="firstName"/>
+    <br/>
+    <label for="lastName">enter lastName</label>
+    <input type="text" th:field="*{lastName}" id="lastName"/>
+    <br/>
+    <label for="age">enter age</label>
+    <input type="text" th:field="*{age}" id="age"/>
     <br/>
     <label for="email">enter email</label>
     <input type="text" th:field="*{email}" id="email"/>

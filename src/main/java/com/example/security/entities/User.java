@@ -55,8 +55,8 @@ public class User implements UserDetails {
         return age;
     }
 
-    public void setAge(String age) {
-        age = age;
+    public void setAge(int age) {
+        this.age = age;
     }
 
     public String getEmail() {
