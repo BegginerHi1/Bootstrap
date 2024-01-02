@@ -2,6 +2,7 @@ package com.example.security.controllers;
 
 import com.example.security.entities.User;
 import com.example.security.repositories.RoleRepository;
+import com.example.security.services.RoleService;
 import com.example.security.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,14 +17,14 @@ public class AdminController {
     @Autowired
     private UserService userService;
     @Autowired
-    private RoleRepository roleRepository;
+    private RoleService roleService;
 
     @GetMapping
     public String list(Model model, Principal principal) {
         model.addAttribute(userService.findByEmail(principal.getName()));
         model.addAttribute("newUser", new User());
         model.addAttribute("list", userService.list());
-        model.addAttribute("roles", roleRepository.findAll());
+        model.addAttribute("roles", roleService.findAll());
         return "admin/list";
     }
 
