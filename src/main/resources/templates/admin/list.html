@@ -174,7 +174,7 @@
                                                  aria-labelledby="deleteModalLabel"
                                                  aria-hidden="true">
                                                 <form th:method="delete"
-                                                      th:action="@{/admin/delete/{id}(id=${user.getId()})}"
+                                                      th:action="@{/admin/{id}(id=${user.getId()})}"
                                                       th:object="${user}">
                                                     <div class="modal-dialog">
                                                         <div class="modal-content">
@@ -267,7 +267,7 @@
                             <h5 class="card-header">
                                 Add new user
                             </h5>
-                            <form method="post" action="/admin" th:object="${user}">
+                            <form th:method="patch" action="/admin" th:object="${user}">
                                 <div class="card-body text-center">
                                     <div class="mb-3">
                                         <label for="firsName" class="form-label"><strong>First Name</strong></label>

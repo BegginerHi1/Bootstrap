@@ -47,10 +47,6 @@ public class UserServiceImpl implements UserService {
         return userRepository.findAll();
     }
 
-    @Override
-    public User findUserById(int id) {
-        return userRepository.findById(id).orElse(null);
-    }
 
     @Override
     @Transactional
