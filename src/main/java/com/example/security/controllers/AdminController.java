@@ -27,29 +27,10 @@ public class AdminController {
         return "admin/list";
     }
 
-    @GetMapping("/{id}")
-    public String userById(@PathVariable int id, Model model) {
-        model.addAttribute("user", userService.findUserById(id));
-        return "admin/user_page";
-    }
-
-    @GetMapping("/create")
-    public String createUser(@ModelAttribute("user") User user, Model model) {
-        model.addAttribute("roles", roleRepository.findAll());
-        return "admin/new";
-    }
-
     @PostMapping
     public String addUser(@ModelAttribute("user") User user) {
         userService.save(user);
         return "redirect:/admin";
-    }
-
-    @GetMapping("/edit/{id}")
-    public String editUser(@PathVariable("id") int id, Model model) {
-        model.addAttribute("user", userService.findUserById(id));
-        model.addAttribute("roles", roleRepository.findAll());
-        return "admin/edit";
     }
 
     @PatchMapping
