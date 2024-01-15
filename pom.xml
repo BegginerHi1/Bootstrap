@@ -48,8 +48,8 @@
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
+			<artifactId>spring-boot-starter-user</artifactId>
+			<scope>user</scope>
 		</dependency>
 	</dependencies>
 
